@@ -1,3 +1,27 @@
+<?php
+if ($_POST) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    include('database/connection.php');
+
+    // Query to check if the user exists
+    $query = $conn->prepare("SELECT * FROM users WHERE username = :username");
+    $query->bindParam(':username', $username);
+    $query->execute();
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+        // Start the session and store user information
+        session_start();
+        $_SESSION['user'] = $user;
+        header("Location: afterlogin.php"); // Redirect to dashboard
+        exit();
+    } else {
+        $error_message = "Invalid username or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +36,10 @@
         <div class="login-box">
             <h1>PharmaQuest</h1>
             <h2>Navigating the Future of Pharmacy Management</h2>
-            <form action="/login" method="post">
+            <?php if (!empty($error_message)): ?>
+                <p class="error-message"><?php echo $error_message; ?></p>
+            <?php endif; ?>
+            <form action="/login_pg.php" method="POST">
                 <div class="input-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>

@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f6f9;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #34495e;
+    color: #fff;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 10px;
+    background: #4CAF50;
+    text-align: left;
+    font-size: 1.15em;
+    font-family: 'Poppins', sans-serif;
+}
+
+#sidebar .sidebar-header h3 {
+    font-size: 2em;
+    color: white;
+}
+
+#sidebar .user-info {
+    text-align: center;
+    padding: 10px 0;
+}
+
+#sidebar .user-info img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+#sidebar .user-info p {
+    margin-top: 10px;
+    color: #fff;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    list-style: none;
+}
+
+#sidebar ul p {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #dcdde1;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+    background: #4CAF50;
+    color: #fff;
+}
+
+#sidebar ul li.active > a {
+    background: #4CAF50;
+    color: #fff;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+#sidebarCollapse:hover {
+    background: #3e8e41;
+}
+
+.navbar {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logout {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.logout a {
+    color: #34495e;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1.1em;
+}
+
+.logout a:hover {
+    color: #e74c3c;
+}
+
+.content-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

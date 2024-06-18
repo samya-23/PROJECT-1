@@ -16,7 +16,7 @@
 <body>
     <header>
         <div class="icon-container top-right">
-            <a href="login_pg.html" title="Login">
+            <a href="login_pg.php" title="Login">
                 <i class="fas fa-user-circle"></i>
             </a>
             <p>Login / Signup</p>
